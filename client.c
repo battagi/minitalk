@@ -1,7 +1,5 @@
-#include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+
+#include"minitalk.h"
 
 void	ft_send_char(int pid, char c)
 {
@@ -19,12 +17,7 @@ void	ft_send_char(int pid, char c)
 		i++;
 	}
 }
-int	ft_is_degit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+
 int	main(int argc, char **argv)
 {
 	int	i;
@@ -33,7 +26,7 @@ int	main(int argc, char **argv)
 	if (argc == 3)
 	{
 		i = 0;
-		pid = atoi(argv[1]);
+		pid = ft_atoi(argv[1]);
 		while (argv[1][i])
 		{
 			if (!ft_is_degit(argv[1][i]) || pid < 0)
@@ -53,3 +46,4 @@ int	main(int argc, char **argv)
 	else
 		printf("must provide additional or fewer arguments !\n");
 }
+
